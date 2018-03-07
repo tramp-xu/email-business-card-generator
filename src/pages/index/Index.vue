@@ -65,7 +65,7 @@ export default {
       <div class="card__body">
         <div class="card__body--left">
           <el-form ref="form" :model="form" label-width="80px">
-            <el-form-item label="logo">
+            <el-form-item label="">
               <el-radio-group v-model="form.logo">
                 <el-radio label="qipeng">企朋</el-radio>
                 <el-radio label="yunpian">云片</el-radio>
@@ -94,7 +94,7 @@ export default {
             <el-form-item label="微信">
               <el-input v-model="form.weChat"></el-input>
             </el-form-item>
-            <el-form-item label="微信">
+            <el-form-item label="地址">
               <el-input v-model="form.address"></el-input>
             </el-form-item>
             <el-form-item label="">
