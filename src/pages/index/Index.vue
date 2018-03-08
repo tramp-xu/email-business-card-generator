@@ -46,7 +46,7 @@ export default {
         })
       } else {
         this.$message({
-          message: '复制失败, 您也可手动选中复制',
+          message: '复制失败, 请联系许俊雄',
           type: 'warning'
         })
       }
