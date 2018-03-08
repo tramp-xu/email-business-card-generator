@@ -11,10 +11,10 @@ const form = {
   address: '杭州西湖区紫霞街176号互联网创新创业园1幢10F'
 }
 const urls = {
-  qipeng: '//www.yunpian.com/console/static/img/email/qipeng.png',
-  yunpian: '//www.yunpian.com/console/static/img/email/yunpian.png',
-  simboss: '//www.yunpian.com/console/static/img/email/simboss.png',
-  weike: '//www.yunpian.com/console/static/img/email/weike.png'
+  qipeng: 'https://www.yunpian.com/console/static/img/email/qipeng.png',
+  yunpian: 'https://www.yunpian.com/console/static/img/email/yunpian.png',
+  simboss: 'https://www.yunpian.com/console/static/img/email/simboss.png',
+  weike: 'https://www.yunpian.com/console/static/img/email/weike.png'
 }
 
 export default {
