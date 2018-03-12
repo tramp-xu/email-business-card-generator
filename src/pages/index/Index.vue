@@ -104,7 +104,7 @@ export default {
         </div>
         <div class="card__body--right">
           <!--企朋-->
-          <div v-if="form.logo === 'qipeng'" style="width: 100%;">
+          <div v-if="form.logo === 'qipeng'" style="height: 79px;">
             <div style="float: left; height: 47px; overflow: hidden; margin: 16px 0;">
               <img :src="urls[form.logo]" style="width: 73px;height: 47px;">
             </div>
@@ -134,7 +134,7 @@ export default {
             <div style="clear: both;"></div>
           </div>
           <!--云片-->
-          <div v-if="form.logo === 'yunpian'">
+          <div v-if="form.logo === 'yunpian'" style="height: 79px;">
             <div style="float: left; height: 47px; overflow: hidden; margin: 16px 0;">
               <img :src="urls['yunpian']" style="width: 125px;height: 47px;">
             </div>
@@ -164,7 +164,7 @@ export default {
             <div style="clear: both;"></div>
           </div>
           <!--SIMBOSS-->
-          <div v-if="form.logo === 'simboss'">
+          <div v-if="form.logo === 'simboss'" style="height: 79px;">
             <div style="float: left; height: 29px; overflow: hidden; margin: 25px 0;">
               <img :src="urls['simboss']" style="width: 128px;height: 29px;">
             </div>
@@ -194,7 +194,7 @@ export default {
             <div style="clear: both;"></div>
           </div>
           <!--维客-->
-          <div v-if="form.logo === 'weike'">
+          <div v-if="form.logo === 'weike'" style="height: 79px;">
             <div style="float: left; height: 39px; overflow: hidden; margin: 20px 0;">
               <img :src="urls['weike']" style="width: 82px;height: 39px;">
             </div>
