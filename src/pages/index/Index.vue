@@ -1,4 +1,6 @@
 <script>
+import domtoimage from 'dom-to-image'
+
 const form = {
   logo: 'qipeng',
   name: '隔壁老王',
@@ -24,7 +26,8 @@ export default {
       value1: '',
       form: {...form},
       urls: {...urls},
-      code: ''
+      code: '',
+      dataURL: ''
     }
   },
   methods: {
@@ -50,6 +53,21 @@ export default {
           type: 'warning'
         })
       }
+    },
+    draw () {
+      let id = this.form.logo
+      let node = document.getElementById(id)
+
+      let filter = node => {
+        return (node.tagName !== 'i')
+      }
+      domtoimage.toSvg(node, {filter: filter})
+        .then(function (dataUrl) {
+          var link = document.createElement('a')
+          link.download = 'my-image-name1.svg'
+          link.href = dataUrl
+          link.click()
+        })
     }
   }
 }
@@ -60,7 +78,7 @@ export default {
     <input type="text" v-model="code" id="code" class="code">
     <el-card class="box-card">
       <div slot="header" class="clearfix">
-        <span>企业微信名片代码生成</span>
+        <span>测试生成图片中... 若急需要使用请联系许俊雄</span>
       </div>
       <div class="card__body">
         <div class="card__body--left">
@@ -99,14 +117,19 @@ export default {
             </el-form-item>
             <el-form-item label="">
               <el-button @click="build" type="primary">确认信息并复制代码</el-button>
+              <el-button @click="draw" type="primary">确认信息并生成图片</el-button>
             </el-form-item>
           </el-form>
         </div>
         <div class="card__body--right">
           <!--企朋-->
-          <div v-if="form.logo === 'qipeng'" style="height: 79px;">
-            <div style="float: left; height: 47px; overflow: hidden; margin: 16px 0;">
-              <img :src="urls[form.logo]" style="width: 73px;height: 47px;">
+          <div id="qipeng" v-if="form.logo === 'qipeng'" style="height: 79px; padding: 0 10px;">
+            <div style="float: left; width: 73px; height: 47px;
+            overflow: hidden; margin: 16px 0;
+            background-image: url('/static/img/qipeng.png');
+            -webkit-background-image: url('/static/img/qipeng.png');
+            background-size: cover;
+            -webkit-background-size: cover">
             </div>
             <div style="float: left; width: 2px; height: 79px; margin: 0 15px; background: linear-gradient(#fff 0%, #fff 5%, #4a67d3 30%, #4a67d3 70%, #fff 95%, #fff 100%)"></div>
             <div style="float: left; height: 79px;">
@@ -134,9 +157,14 @@ export default {
             <div style="clear: both;"></div>
           </div>
           <!--云片-->
-          <div v-if="form.logo === 'yunpian'" style="height: 79px;">
-            <div style="float: left; height: 47px; overflow: hidden; margin: 16px 0;">
-              <img :src="urls['yunpian']" style="width: 125px;height: 47px;">
+          <div id="yunpian" v-if="form.logo === 'yunpian'" style="height: 79px; padding: 0 10px;">
+            <div style="float: left; width: 125px; height: 47px;
+            overflow: hidden; margin: 16px 0;
+            background-image: url('/static/img/yunpian.png');
+            -webkit-background-image: url('/static/img/yunpian.png');
+            background-size: cover;
+            -webkit-background-size: cover;
+            ">
             </div>
             <div style="float: left; width: 2px; height: 79px; margin: 0 15px; background: linear-gradient(#fff 0%, #fff 5%, #00a1ff 30%, #00a1ff 70%, #fff 95%, #fff 100%)"></div>
             <div style="float: left; height: 79px;">
@@ -164,9 +192,14 @@ export default {
             <div style="clear: both;"></div>
           </div>
           <!--SIMBOSS-->
-          <div v-if="form.logo === 'simboss'" style="height: 79px;">
-            <div style="float: left; height: 29px; overflow: hidden; margin: 25px 0;">
-              <img :src="urls['simboss']" style="width: 128px;height: 29px;">
+          <div id="simboss" v-if="form.logo === 'simboss'" style="height: 79px; padding: 0 10px;">
+            <div style="float: left; width: 128px; height: 29px;
+            overflow: hidden; margin: 25px 0;
+            background-image: url('/static/img/simboss.png');
+            -webkit-background-image: url('/static/img/simboss.png');
+            background-size: cover;
+            -webkit-background-size: cover;
+            ">
             </div>
             <div style="float: left; width: 2px; height: 79px; margin: 0 15px; background: linear-gradient(#fff 0%, #fff 5%, #0095e2 30%, #0095e2 70%, #fff 95%, #fff 100%)"></div>
             <div style="float: left; height: 79px;">
@@ -194,9 +227,14 @@ export default {
             <div style="clear: both;"></div>
           </div>
           <!--维客-->
-          <div v-if="form.logo === 'weike'" style="height: 79px;">
-            <div style="float: left; height: 39px; overflow: hidden; margin: 20px 0;">
-              <img :src="urls['weike']" style="width: 82px;height: 39px;">
+          <div id="weike" v-if="form.logo === 'weike'" style="height: 79px; padding: 0 10px;">
+            <div style="float: left; width: 82px; height: 39px;
+            overflow: hidden; margin: 20px 0;
+            background-image: url('/static/img/weike.png');
+            -webkit-background-image: url('/static/img/weike.png');
+            background-size: cover;
+            -webkit-background-size: cover;
+            ">
             </div>
             <div style="float: left; width: 2px; height: 79px; margin: 0 15px; background: linear-gradient(#fff 0%, #fff 5%, #0097e8 30%, #0097e8 70%, #fff 95%, #fff 100%)"></div>
             <div style="float: left; height: 79px;">
