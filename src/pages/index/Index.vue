@@ -66,7 +66,7 @@ export default {
     <input type="text" v-model="code" id="code" class="code">
     <el-card class="box-card">
       <div slot="header" class="clearfix">
-        <span>手动复制代码功能 测试中... 请稍后再使用</span>
+        <span>企业微信签名生成器</span>
       </div>
       <div class="card__body">
         <div class="card__body--left" v-loading="isLoading">
