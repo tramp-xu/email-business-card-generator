@@ -34,7 +34,7 @@ export default {
       this.code = String(dom.innerHTML)
       setTimeout(() => {
         this.copy()
-      }, 500)
+      }, 1000)
     },
     copy () {
       let target = document.getElementById('code')
