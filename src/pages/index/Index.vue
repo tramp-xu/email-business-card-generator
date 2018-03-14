@@ -25,14 +25,17 @@ export default {
       form: {...form},
       urls: {...urls},
       code: '',
-      copyState: ''
+      copyState: '',
+      isLoading: false
     }
   },
   methods: {
     build () {
       let dom = document.querySelector('.right__sign')
       this.code = String(dom.innerHTML)
+      this.isLoading = true
       setTimeout(() => {
+        this.isLoading = false
         this.copy()
       }, 1000)
     },
@@ -66,7 +69,7 @@ export default {
         <span>手动复制代码功能 测试中... 请稍后再使用</span>
       </div>
       <div class="card__body">
-        <div class="card__body--left">
+        <div class="card__body--left" v-loading="isLoading">
           <el-form ref="form" :model="form" label-width="80px">
             <el-form-item label="">
               <el-radio-group v-model="form.logo">
