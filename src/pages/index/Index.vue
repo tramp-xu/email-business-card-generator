@@ -24,7 +24,8 @@ export default {
       value1: '',
       form: {...form},
       urls: {...urls},
-      code: ''
+      code: '',
+      copyState: ''
     }
   },
   methods: {
@@ -40,13 +41,15 @@ export default {
       target.select()
       let done = document.execCommand('Copy')
       if (done) {
+        this.copyState = 'success'
         this.$message({
           message: '已复制到剪贴板',
           type: 'success'
         })
       } else {
+        this.copyState = 'fail'
         this.$message({
-          message: '复制失败, 请联系许俊雄',
+          message: '复制失败, 请手动复制代码',
           type: 'warning'
         })
       }
@@ -223,6 +226,11 @@ export default {
             </div>
             <div style="clear: both;"></div>
           </div>
+          <!--代码展示-->
+          <template v-if="copyState === 'fail'">
+            <div class="copy-by-self">自动复制失败请手动复制下面的代码</div>
+            <el-input type="textarea" v-model="code" :rows="6"></el-input>
+          </template>
         </div>
       </div>
     </el-card>
@@ -251,5 +259,9 @@ export default {
   .card__body--right {
     width: 500px;
     margin-left: 40px;
+  }
+  .copy-by-self {
+    color: #ff9f1a;
+    margin: 30px 0 10px;
   }
 </style>
